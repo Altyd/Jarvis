@@ -39,9 +39,8 @@ def main():
                     app_name = command.split("open ")[1]
                     open_app(app_name)
                 else:
-                    idk = "Sorry, I don't understand that command."
-                    speak(idk)
-                    print(idk)
+                    speak("Sorry, I don't understand that command.")
+                    print("Sorry, I don't understand that command.")
         except sr.UnknownValueError:
             print("Sorry, I didn't catch that.")
         except sr.RequestError as e:
