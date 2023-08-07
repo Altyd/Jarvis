@@ -1,6 +1,7 @@
 import os
 import speech_recognition as sr
 import pyttsx3
+import pyautogui
 
 def speak(text):
     engine = pyttsx3.init()
@@ -17,6 +18,9 @@ def open_app(app_name):
         "spotify": "start chrome https://open.spotify.com",
         "github": "start chrome https://github.com/Altyd",
         "gpt": "start chrome https://chat.openai.com",
+        "gmail": "start chrome https://mail.google.com",
+        "outlook": "start chrome https://outlook.office.com",
+        "word": "start chrome https://www.office.com/launch/word",
     }
     
     if app_name in app_commands:
@@ -24,10 +28,16 @@ def open_app(app_name):
     else:
         speak("App not found!")
 
+def pause_media():
+    os.system("nircmd.exe sendkeypress space")
+
+def play_media():
+    os.system("nircmd.exe sendkeypress space")
+
 def main():
     recognizer = sr.Recognizer()
     
-    while True:  # Add an infinite loop
+    while True:
         with sr.Microphone() as source:
             print("Listening for 'hey google'...")
             audio = recognizer.listen(source)
@@ -43,6 +53,10 @@ def main():
                     if "open" in command:
                         app_name = command.split("open ")[1]
                         open_app(app_name)
+                    elif "pause" in command or "stop" in command:
+                        pause_media()
+                    elif "play" in command or "resume" in command:
+                        play_media()
                     else:
                         idk = "Sorry, I don't understand that command."
                         speak(idk)

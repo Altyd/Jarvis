@@ -1,6 +1,7 @@
 import os
 import speech_recognition as sr
 import pyttsx3
+import pyautogui
 
 def speak(text):
     engine = pyttsx3.init()
@@ -27,10 +28,16 @@ def open_app(app_name):
     else:
         speak("App not found!")
 
+def pause_media():
+    pyautogui.press("playpause")
+
+def play_media():
+    pyautogui.press("playpause")
+
 def main():
     recognizer = sr.Recognizer()
     
-    while True:  # Add an infinite loop
+    while True:
         with sr.Microphone() as source:
             print("Listening for 'hey google'...")
             audio = recognizer.listen(source)
@@ -46,6 +53,10 @@ def main():
                     if "open" in command:
                         app_name = command.split("open ")[1]
                         open_app(app_name)
+                    elif "pause" in command or "stop" in command:
+                        pause_media()
+                    elif "play" in command or "resume" in command:
+                        play_media()
                     else:
                         idk = "Sorry, I don't understand that command."
                         speak(idk)
