@@ -16,6 +16,10 @@ def open_app(app_name):
         "youtube": "start chrome https://www.youtube.com",
         "spotify": "start chrome https://open.spotify.com",
         "github": "start chrome https://github.com/Altyd",
+        "gpt": "start chrome https://chat.openai.com",
+        "gmail": "start chrome https://mail.google.com",
+        "outlook": "start chrome https://outlook.office.com",
+        "word": "start chrome https://www.office.com/launch/word",
     }
     
     if app_name in app_commands:
