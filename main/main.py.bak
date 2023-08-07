@@ -14,8 +14,8 @@ def open_app(app_name):
         "calculator": "calc.exe",
         "browser": "start chrome",
         "youtube": "start chrome https://www.youtube.com",
-        "spotify": "start chrome https://open.spotify.com",
-        "github": "start chrome https://github.com/Altyd",
+        "spotify": "start chrome https://open.spotify.com/",
+        "spotify": "start chrome https://open.spotify.com/",
     }
     
     if app_name in app_commands:
